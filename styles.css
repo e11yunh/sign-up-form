@@ -1,7 +1,53 @@
-body {
+:root {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 h1 {
     color: brown;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+}
+
+#image-container {
+    width: 60%;
+    height: 100%;
+    border: 1px solid salmon;
+}
+
+#form-container {
+    width: 40%;
+}
+
+form {
+    background-color: rgba(1, 86, 48, 0.595);
+    padding: 10px;
+}
+
+.splash_img {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+}
+
+.logo_container {
+    text-align: center;
+    position: relative;
+    top: 250px;
+    background-color: rgba(41, 39, 39, 0.5);
+}
+
+.logo{
+    width: 100px;
+    height: 100px;
+}
+
+.logo_container span {
+    font-size: 5rem;
 }
