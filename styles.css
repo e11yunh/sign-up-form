@@ -59,12 +59,13 @@
 
 :root {
     /*Variable Declarations*/
-    --theme-color: RGB(64, 120, 132);
-    --label-color: rgb(248, 210, 242);
+    --label-color: #dda6b7;
     --neon-green: rgb(0, 255, 123);
+    --theme-color: #2f4241;
+    --focus-color: rgb(203, 171, 235);
 
     color: white;
-    background: rgb(47,66,65);
+    background: var(--theme-color);
     background: linear-gradient(0deg, rgba(47,66,65,1) 31%, rgba(12,12,13,1) 100%);
     line-height: 1.5;
 
@@ -72,10 +73,18 @@
     padding: 0;
     margin: 0;
     font-family: "neckyn_pixel_demoregular";
+    
 }
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
 
 h1 {
     color: rgb(107, 17, 17);
+    margin: 0;
 }
 
 .emphasis_text:hover {
@@ -84,12 +93,13 @@ h1 {
 
 div .header {
     font-family: "quagey_pixel_demoregular", "pixel_musketeerregular";
-    margin-top: 100px;
+    margin-top: 0px;
 }
 
 .form-header {
     text-align: center;
     cursor: default;
+    color: hsla(171, 14%, 90%, 0.799);
 }
 
 .header h2 {
@@ -105,22 +115,33 @@ div .header {
 }
 
 #image-container {
-    width: 50%;
+    width: 60%;
     height: 100%;
     border: 1px solid salmon;
+    z-index: -5;
 }
 
 #form-container {
     width: 40%;
-    margin: 0 50px;
     text-align: center;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 
 .signup-form {
+    height: 75%;
     border: 3px solid var(--neon-green);
-
-    padding: 10px;
+    width: 75%;
+    font-family: "pixel_musketeerregular";
+    font-size: 1.15em;
+    line-height: calc(1ex / 0.32);
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
     text-align: left;
     box-shadow: 0px 5px rgba(0, 0, 0, 0.423), 
     0px 0.5px rgb(0, 0, 0), 0px 2px rgba(0, 0, 0, 0.6);
@@ -135,7 +156,7 @@ div .header {
 .logo_container {
     text-align: center;
     position: relative;
-    top: 250px;
+    top: 360px;
     background-color: rgba(65, 56, 56, 0.5);
     border: 2px solid purple;
     display: flex;
@@ -163,9 +184,15 @@ label {
 
 input {
     border-radius: 5px;
-    height: 20px;
+    padding-left: 10px;
+    height: 30px;
     background-color: inherit;
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-right: 40px;
+    color: white;
+    font-family: "pixel_musketeerregular", "system-UI";
+    font-size: larger;
+    background-image: linear-gradient(to right, #2f4241, #283636, #212b2b, #1a2020, #131616);
 }
 
 .register-container {
@@ -173,32 +200,43 @@ input {
 }
 
 button {
-    font-size: 1.2em;
+    font-size: 1.5em;
     text-align: center;
     padding: 10px 20px;
     border-radius: 7px;
     background-color: inherit;
     color: white;
     cursor: pointer;
+    font-family: "pixel_musketeerregular";
 }
 
 .pass:invalid {
-    border-color: rgba(247, 129, 129, 0.542);
+    border-color: rgba(236, 113, 113, 0.66);
 }
 
-input:focus {
-    border-color: rgb(103, 41, 15);
-    box-shadow: 4px 4px black inset;
+label:has(input:focus), input:focus {
+    color: var(--focus-color);
+    outline: none;
+    border-color: var(--focus-color);
 }
 
 button:hover {
-    color: rgb(203, 171, 235);
+    color: var(--focus-color);
     border-color: rgb(0, 255, 123);
 
 }
 
-.register-container a {
-    color: var(--label-color);
+.register-container {
+    margin-top: 20px;
+}
+
+.link {
+    color: hsla(171, 14%, 90%, 0.799);
+    text-underline-offset: 5.5px;
+}
+
+.link:hover {
+    color: var(--focus-color)
 }
 
 #eye-container {
@@ -215,3 +253,41 @@ button:hover {
 .blinking-eye {
     visibility: hidden;
 }
+
+.noise-overlay {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 101%;
+    pointer-events: none;
+
+    background: 
+    repeating-radial-gradient(#000 0 0.0001%,#fff 0 0.0002%) 50% 0/2500px 2500px,
+    repeating-conic-gradient(#000 0 0.0001%,#fff 0 0.0002%) 60% 60%/2500px 2500px;
+
+
+    background-blend-mode: difference;
+    animation: scramble .2s infinite alternate;
+    opacity: 0.2;
+}
+
+@keyframes scramble{
+  100% {background-position: 50% 0, 60% 50%}
+}
+
+/* .noise {
+    width: 250px;
+    height: 250px;
+    filter: contrast(240%) brightness(100%);
+    background: 
+      conic-gradient(from 268deg at -50% -50%, rgba(47,66,65,1), rgba(96,57,57,0)),
+      url(/noise-background.svg)
+}
+
+.overlay {
+    background: moccasin;
+    mix-blend-mode: multiply;
+  } */

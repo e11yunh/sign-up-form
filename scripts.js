@@ -49,5 +49,5 @@ function enable_eye() {
 
 document.addEventListener("DOMContentLoaded", (event) => {
     setInterval(generate_greeting, 200);
-    setInterval(enable_eye, 20000);
+    // setInterval(enable_eye, 40000);
 })
