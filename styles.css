@@ -291,3 +291,14 @@ button:hover {
     background: moccasin;
     mix-blend-mode: multiply;
   } */
+
+  #tv-wrap {
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    z-index: 99;
+  }
+
+  #tv-svg {
+
+  }
