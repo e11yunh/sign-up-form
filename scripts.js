@@ -47,7 +47,21 @@ function enable_eye() {
     });
 }
 
+function start_tv() {
+    const power_btn = document.querySelector("#tv-button")
+    const main_content = document.querySelector("#main-container")
+    const tv_svg = document.querySelector("#tv-wrap")
+    const outer_container = document.querySelector("#initial-container")
+
+    power_btn.addEventListener("click", () => {
+        main_content.classList.remove("invisible");
+        tv_svg.classList.add("invisible");
+        outer_container.classList.add("invisible");
+    })
+}
+
 document.addEventListener("DOMContentLoaded", (event) => {
     setInterval(generate_greeting, 200);
     // setInterval(enable_eye, 40000);
+    start_tv();
 })
