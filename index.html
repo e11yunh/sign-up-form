@@ -66,21 +66,25 @@
                 <p>
                     <label for="user_name">ENTER YOUR NAME:
                         <input type="text" required>
+                        <span class="verified"></span>
                     </label>
                 </p>
                 <p>
                     <label for="user_email">ENTER YOUR EMAIL:
                         <input type="email" id="user_email" name="user_email" required>
+                        <span class="verified"></span>
                     </label>
                 </p>
                 <p>
                     <label for="user_password">ENTER YOUR PASSWORD:
-                        <input class="pass" type="password" id="user_password" name="user_password" required>
+                        <input class="pass" type="password" id="user_password" name="user_password" onkeyup='check_password();' required>
+                        <span></span>
                     </label>
                 </p>
                 <p>
                     <label for="check_pass">CONFIRM YOUR PASSWORD:
-                        <input class="pass" type="password" id="check_pass" name="check_pass" required>
+                        <input class="pass" type="password" id="check_pass" name="check_pass" onkeyup='check_password();' required>
+                        <span></span>
                     </label>
                 </p>
                 <div class="register-container">
@@ -89,7 +93,7 @@
                 </div>
             </form>
         </div>
-        <div class="green-noise"></div>
+        <!-- <div class="green-noise"></div> -->
         <div id="eye-container" >
             <div class="eye-wrap"><img class="blinking-eye" src="images/blinking_eye_128.gif" alt="blinking eye"/></div>
         </div>
