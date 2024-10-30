@@ -216,11 +216,12 @@ button {
     border-color: rgba(236, 113, 113, 0.66);
 }
 
+
 input + span {
     position: relative;
 }
 
-input + span::before {
+input + .verified::before {
     position: absolute;
     top: -35px;
     right: 0px;
@@ -238,6 +239,36 @@ label:has(input:focus), input:focus {
     border-color: var(--focus-color);
 }
 
+p {
+    margin-top: 0px;
+    margin-bottom: 24px;
+}
+
+#pass_requirements_container {
+    display: flex;
+    margin-top: -20px;
+    padding: 0;
+    width: 100%;
+    border: 1px solid black;
+    font-size: smaller;
+}
+
+.register-container > p {
+    margin-top: 15px;
+}
+
+
+#pass_requirements {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    color: white;
+    place-content: center;
+}
+
+.pass_valid {
+    color: #48c048;
+}
+
 button:hover {
     color: var(--focus-color);
     border-color: rgb(0, 255, 123);
@@ -245,7 +276,7 @@ button:hover {
 }
 
 .register-container {
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .link {
@@ -271,6 +302,7 @@ button:hover {
 .blinking-eye {
     visibility: hidden;
 }
+
 
 /* .noise {
     width: 100%;
@@ -345,6 +377,8 @@ button:hover {
     pointer-events: none;
     overflow: hidden;
 }
+
+
 
 .noise-overlay {
     position: absolute;

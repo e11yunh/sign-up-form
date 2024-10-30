@@ -60,11 +60,23 @@ function start_tv() {
     })
 }
 
+function check_pass_requirements() {
+    const user_pw = document.querySelector("#user_password");
+
+    if (length(user_pw.textContent) >= 8 && length(user_pw.textContent) <= 18) {
+        const char_span = document.querySelector("#char-length")
+        char_span.classList.add("pass_valid")
+
+    }
+}
+
 function check_password() {
     const user_pw = document.querySelector("#user_password");
     const cfm_pw = document.querySelector("#check_pass");
 
     const isMatch = (user_pw.value != "" && cfm_pw.value != "") && (user_pw.value === cfm_pw.value);
+
+    // check_pass_requirements();
 
     if (isMatch) {
         user_pw.nextElementSibling.classList.add("verified");

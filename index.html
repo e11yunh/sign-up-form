@@ -77,13 +77,21 @@
                 </p>
                 <p>
                     <label for="user_password">ENTER YOUR PASSWORD:
-                        <input class="pass" type="password" id="user_password" name="user_password" onkeyup='check_password();' required>
+                        <input class="pass" id="user_password" type="password" maxlength="128" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,18}" title="Password should be 8 - 18 characters long, contains a capital letter, and a small letter, and at least one digit" id="user_password" name="user_password" onkeyup='check_password();' required>
                         <span></span>
+                        <div id="pass_requirements_container" class="">
+                            <div id="pass_requirements">
+                                <span id="char-length"><b>8 - 18</b> characters long</span>
+                                <span id="capital">1 <b>capital letter</b></span>
+                                <span id="lowercase">1 <b>lowercase letter</b></span>
+                                <span id="num">1 <b>number</b></span>
+                            </div>
+                        </div>
                     </label>
                 </p>
                 <p>
                     <label for="check_pass">CONFIRM YOUR PASSWORD:
-                        <input class="pass" type="password" id="check_pass" name="check_pass" onkeyup='check_password();' required>
+                        <input class="pass" type="password" id="check_pass" name="check_pass" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,18}" onkeyup='check_password();' required>
                         <span></span>
                     </label>
                 </p>
