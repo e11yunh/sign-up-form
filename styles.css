@@ -65,8 +65,6 @@
     --focus-color: rgb(203, 171, 235);
 
     color: white;
-    /* background: var(--theme-color); */
-    /* background: linear-gradient(0deg, rgba(47,66,65,1) 31%, rgba(12,12,13,1) 100%); */
     line-height: 1.5;
 
     box-sizing: border-box;
@@ -93,7 +91,7 @@ h1 {
 
 div .header {
     font-family: "quagey_pixel_demoregular", "pixel_musketeerregular";
-    margin-top: 0px;
+    margin-top: 30px;
 }
 
 .form-header {
@@ -127,10 +125,11 @@ div .header {
     border: 1px solid white;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-cen;
     align-items: center;
-    z-index: 2;
-    background-color: var(--theme-color)
+    background-color: var(--theme-color);
+    background: var(--theme-color);
+    background: linear-gradient(0deg, rgba(47,66,65,1) 31%, rgba(12,12,13,1) 100%);
 }
 
 
@@ -142,11 +141,13 @@ div .header {
     font-size: 1.15em;
     line-height: calc(1ex / 0.32);
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     padding: 0px 20px;
     text-align: left;
     box-shadow: 0px 5px rgba(0, 0, 0, 0.423), 
     0px 0.5px rgb(0, 0, 0), 0px 2px rgba(0, 0, 0, 0.6);
+    z-index: 4;
 }
 
 .splash_img {
@@ -213,7 +214,7 @@ button {
 }
 
 .pass:invalid {
-    border-color: rgba(236, 113, 113, 0.66);
+    border-color: hsla(342, 100%, 54%, 0.623);
 }
 
 
@@ -234,9 +235,12 @@ input:valid + .verified::before {
 }
 
 label:has(input:focus), input:focus {
-    color: var(--focus-color);
     outline: none;
-    border-color: var(--focus-color);
+    border-color: var(--label-color);
+}
+
+input:valid {
+    border-color:var(--focus-color);
 }
 
 p {
@@ -276,7 +280,7 @@ button:hover {
 }
 
 .register-container {
-    margin-top: 5px;
+    margin-top: -15px;
 }
 
 .link {
@@ -406,16 +410,17 @@ button:hover {
 .green-noise {
     position: absolute;
     width: 100%;
-    height: 100%;
-    z-index: 1;
+    height: 100vh;
+    z-index: 3;
+    pointer-events: none;
 
     
     background: 
-    repeating-radial-gradient(hsl(177, 30%, 45%) 0 0.0001%, hsl(171, 100%, 10%) 0 0.002%) 5% 0/500px 1000px,
-    repeating-conic-gradient(hsl(177, 30%, 40%) 0 0.0001%, hsl(171, 100%, 10%) 0 0.00012%) 10% 60%/2500px 2500px;
+    repeating-radial-gradient(hsl(136, 100%, 4%) 0 0.0001%, hsl(171, 100%, 10%) 0 0.002%) 35% 0%/  100%,
+    repeating-conic-gradient(hsl(133, 28%, 35%) 0 0.0001%, hsl(171, 100%, 10%) 0 0.00012%) 15% 40%/9000px 10000px;
     
     background-blend-mode: difference;
-    animation: scramble 1.2s infinite alternate; 
+    animation: scramble 0.1s infinite alternate; 
     opacity: 0.5;
 }
 
