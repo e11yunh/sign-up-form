@@ -50,14 +50,22 @@ function enable_eye() {
 function start_tv() {
     const power_btn = document.querySelector("#tv-button")
     const main_content = document.querySelector("#main-container")
-    const tv_svg = document.querySelector("#tv-wrap")
+    const tv_container = document.querySelector("#tv-wrap")
     const outer_container = document.querySelector("#initial-container")
+    const tv_svg = document.querySelector("#tv-svg")
 
     power_btn.addEventListener("click", () => {
-        main_content.classList.remove("invisible");
-        tv_svg.classList.add("invisible");
-        outer_container.classList.add("invisible");
-    })
+        tv_svg.classList.add("expanded");
+
+    });
+
+    tv_svg.addEventListener("transitionend", (event) => {
+       if (event.propertyName === "transform") {
+            main_content.classList.remove("invisible");
+            outer_container.remove();
+       }
+
+    });
 }
 
 function check_pass_requirements() {
@@ -76,7 +84,6 @@ function check_password() {
 
     const isMatch = (user_pw.value != "" && cfm_pw.value != "") && (user_pw.value === cfm_pw.value);
 
-    // check_pass_requirements();
 
     if (isMatch) {
         user_pw.nextElementSibling.classList.add("verified");

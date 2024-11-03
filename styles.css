@@ -115,7 +115,6 @@ div .header {
 #image-container {
     width: 60%;
     height: 100%;
-    border: 1px solid salmon;
     z-index: -5;
 }
 
@@ -307,22 +306,6 @@ button:hover {
     visibility: hidden;
 }
 
-
-/* .noise {
-    width: 100%;
-    height: 100%;
-    filter: contrast(240%) brightness(100%);
-    background: 
-      conic-gradient(from 268deg at -50% -50%, rgba(47,66,65,1), rgba(96,57,57,0)),
-      url(/noise-background.svg)
-}
-
-.overlay {
-    background: moccasin;
-    mix-blend-mode: multiply;
-  }  */
-
-
   #tv-wrap {
     position: absolute;
     top: 45%;
@@ -332,6 +315,7 @@ button:hover {
   #tv-svg {
     z-index: 3;
     position: relative;
+    transition: transform 1.5s ease-in-out 0.25s, opacity 2s ease-out 0.5s;
   }
 
   #tv-base {
@@ -354,6 +338,11 @@ button:hover {
   #tv-button:hover {
     stroke: #dda6b7;
   }
+
+ #tv-svg.expanded {
+    transform: scale(5);
+    opacity: 0;
+ } 
 
   /* .noise-overlay {
     position: absolute;
@@ -424,6 +413,23 @@ button:hover {
     opacity: 0.5;
 }
 
+.vignette-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 4;
+    pointer-events: none;
+    background: radial-gradient(
+        circle at center,
+        transparent 30%, 
+        rgba(0, 0, 0, 0.3) 60%,
+        rgba(0, 0, 0, 0.8) 90%,
+        rgba(0, 0, 0, 1.0) 100%
+    );
+}
+
 .invisible {
     visibility: hidden;
 }
@@ -475,7 +481,7 @@ button:hover {
     font-size: 4rem;
     color: rgba(85, 161, 161, 0.755);
     transition: 1s all;
-    transition-delay: 0.8s;
+    transition-delay: 0.3s;
 }
 
 .welcome-text:hover {
